@@ -241,35 +241,100 @@
                 Created for a spooktacular night • Happy Halloween 2026 
         </footer> 
         <script> 
-            // JavaScript logic for opening envelope and handling modals let isOpened = false; function openEnvelope() { if (isOpened) { 
-            // // If already open, open the full modal openModal(); return; } const envelope = document.getElementById('envelope'); 
-            // const instruction = document.getElementById('instruction-text'); const actionButtons = 
-            // document.getElementById('action-buttons'); envelope.classList.add('open'); isOpened = true; 
-            // Update instruction text if (instruction) { instruction.innerHTML = '<i class="fa-solid fa-sparkles text-amber-400"></i> 
-            // The letter has been unsealed!'; instruction.classList.remove('animate-bounce'); } // 
-            // Show action buttons after animation settles setTimeout(() => { if (actionButtons) { actionButtons.classList.remove('hidden'); 
-            // actionButtons.classList.add('flex'); } // Automatically show full modal after envelope animation openModal(); }, 800); } 
-            // function resetEnvelope() { const envelope = document.getElementById('envelope'); const instruction = 
-            // document.getElementById('instruction-text'); const actionButtons = document.getElementById('action-buttons'); 
-            // envelope.classList.remove('open'); isOpened = false; if (instruction) { instruction.innerHTML = '<i class="fa-solid fa-hand-pointer text-orange-400">
-            // </i> Click the wax seal to open your invitation!'; instruction.classList.add('animate-bounce'); } if (actionButtons) 
-            // { actionButtons.classList.add('hidden'); actionButtons.classList.remove('flex'); } closeModal(); } function openModal() { 
-            // const modal = document.getElementById('invitationModal'); const modalContent = document.getElementById('modalContent'); 
-            // if (modal && modalContent) { modal.classList.remove('opacity-0', 'pointer-events-none'); modalContent.classList.remove('scale-95'); 
-            // modalContent.classList.add('scale-100'); } } function closeModal() { const modal = document.getElementById('invitationModal'); 
-            // const modalContent = document.getElementById('modalContent'); if (modal && modalContent) { modal.classList.add('opacity-0', 
-            // 'pointer-events-none'); modalContent.classList.remove('scale-100'); modalContent.classList.add('scale-95'); } } function openRSVPModal() { 
-            // closeModal(); const rsvpModal = document.getElementById('rsvpModal'); if (rsvpModal) { rsvpModal.classList.remove('opacity-0', 
-            // 'pointer-events-none'); } } function closeRSVPModal() { const rsvpModal = document.getElementById('rsvpModal'); if (rsvpModal) { 
-            // rsvpModal.classList.add('opacity-0', 'pointer-events-none'); } } function submitRSVP(event) { event.preventDefault(); const name = 
-            // document.getElementById('guestName').value; const status = document.getElementById('guestStatus').value; closeRSVPModal(); 
-            // Show Custom Toast const toast = document.getElementById('toast'); const toastTitle = document.getElementById('toastTitle'); 
-            // const toastDesc = document.getElementById('toastDesc'); if (status === 'attending') { toastTitle.innerText = `Welcome to the Coven, 
-            // ${name}!`; toastDesc.innerText = 'Your RSVP is logged in the Book of the Dead.'; } else if (status === 'maybe') { toastTitle.innerText = 
-            // `The spirits await your decision, ${name}...`; toastDesc.innerText = 'Make up your mind before the moon sets!'; } else { 
-            // toastTitle.innerText = `A coward flees, ${name}!`; toastDesc.innerText = 'The ghosts will haunt your dreams tonight.'; } 
-            // toast.classList.remove('translate-y-32', 'opacity-0'); setTimeout(() => { toast.classList.add('translate-y-32', 'opacity-0'); }, 5000); 
-            // document.getElementById('rsvpForm').reset(); } 
+            // JavaScript logic for opening envelope and handling modals 
+            let isOpened = false; function openEnvelope() { 
+                if (isOpened) { 
+             // If already open, open the full modal 
+            openModal(); return;
+            } 
+            const envelope = document.getElementById('envelope'); 
+            const instruction = document.getElementById('instruction-text'); 
+            const actionButtons = document.getElementById('action-buttons'); 
+            envelope.classList.add('open'); 
+            isOpened = true; 
+             //Update instruction text 
+            if (instruction) { 
+                instruction.innerHTML ='<i class="fa-solid fa-sparkles text-amber-400"></i> The letter has been unsealed!'; 
+            instruction.classList.remove('animate-bounce'); 
+        } 
+             //Show action buttons after animation settles 
+            setTimeout(() => { if (actionButtons) { 
+                actionButtons.classList.remove('hidden'); 
+            actionButtons.classList.add('flex'); 
+            } 
+             // Automatically show full modal after envelope animation 
+            openModal(); }, 800); 
+            } 
+            function resetEnvelope() { 
+                const envelope = document.getElementById('envelope'); 
+                const instruction = document.getElementById('instruction-text'); 
+                const actionButtons = document.getElementById('action-buttons'); 
+                envelope.classList.remove('open'); 
+                isOpened = false; 
+                if (instruction) { 
+                    instruction.innerHTML = '<i class="fa-solid fa-hand-pointer text-orange-400"></i> Click the wax seal to open your invitation!'; 
+                    instruction.classList.add('animate-bounce'); 
+                } 
+                if (actionButtons) { 
+                    actionButtons.classList.add('hidden'); 
+                    actionButtons.classList.remove('flex'); 
+                } 
+                closeModal(); 
+            } function openModal() { 
+                const modal = document.getElementById('invitationModal'); 
+                const modalContent = document.getElementById('modalContent'); 
+                if (modal && modalContent) { 
+                    modal.classList.remove('opacity-0', 'pointer-events-none'); 
+                    modalContent.classList.remove('scale-95'); 
+                    modalContent.classList.add('scale-100'); 
+                } 
+            } 
+            function closeModal() { 
+                const modal = document.getElementById('invitationModal'); 
+                const modalContent = document.getElementById('modalContent'); 
+                if (modal && modalContent) { 
+                    modal.classList.add('opacity-0', 'pointer-events-none'); 
+                    modalContent.classList.remove('scale-100'); 
+                    modalContent.classList.add('scale-95'); 
+                } 
+            } 
+            function openRSVPModal() { 
+                closeModal(); const rsvpModal = document.getElementById('rsvpModal'); 
+                if (rsvpModal) { 
+                    rsvpModal.classList.remove('opacity-0','pointer-events-none'); 
+                } 
+            } 
+            function closeRSVPModal() { 
+                const rsvpModal = document.getElementById('rsvpModal'); 
+                if (rsvpModal) { 
+                    rsvpModal.classList.add('opacity-0', 'pointer-events-none'); 
+                } 
+            } 
+            function submitRSVP(event) { 
+                event.preventDefault(); 
+                const name = document.getElementById('guestName').value; 
+                const status = document.getElementById('guestStatus').value; 
+                closeRSVPModal(); 
+                //Show Custom Toast 
+                const toast = document.getElementById('toast'); 
+                const toastTitle = document.getElementById('toastTitle'); 
+                const toastDesc = document.getElementById('toastDesc'); 
+
+                if (status === 'attending') { 
+                    toastTitle.innerText = `Welcome to the Coven, ${name}!`; 
+                    toastDesc.innerText = 'Your RSVP is logged in the Book of the Dead.'; 
+                } else if (status === 'maybe') { 
+                    toastTitle.innerText = `The spirits await your decision, ${name}...`; 
+                    toastDesc.innerText = 'Make up your mind before the moon sets!'; 
+                } else { 
+                    toastTitle.innerText = `A coward flees, ${name}!`; 
+                    toastDesc.innerText = 'The ghosts will haunt your dreams tonight.'; 
+                } 
+                toast.classList.remove('translate-y-32', 'opacity-0'); setTimeout(() => { 
+                    toast.classList.add('translate-y-32', 'opacity-0'); 
+                }, 5000); 
+                document.getElementById('rsvpForm').reset(); 
+            } 
         </script> 
     </body> 
 </html>
